@@ -18,4 +18,12 @@ def create_app():
 
     Migrate(app, app.db)
 
+    from .clientes import bp_clientes
+    from .pedidos import bp_pedidos
+    from .produtos import bp_produtos
+
+    app.register_blueprint(bp_clientes)
+    app.register_blueprint(bp_pedidos)
+    app.register_blueprint(bp_produtos)
+
     return app
